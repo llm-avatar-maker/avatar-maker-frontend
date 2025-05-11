@@ -1,0 +1,64 @@
+{
+	"name": "avatar-video-maker-frontend",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		"@emotion/react": "^11.13.3",
+		"@emotion/styled": "^11.13.0",
+		"@fontsource/roboto": "^5.1.0",
+		"@mui/icons-material": "^6.1.0",
+		"@mui/material": "^6.1.0",
+		"@testing-library/jest-dom": "^6.5.0",
+		"@testing-library/react": "^16.0.1",
+		"@testing-library/user-event": "^14.5.2",
+		"axios": "^1.7.7",
+		"env-cmd": "^10.1.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-player": "^2.16.0",
+		"react-router-dom": "^6.26.2",
+		"react-scripts": "5.0.1",
+		"web-vitals": "^2.1.4"
+	},
+	"scripts": {
+		"start": "env-cmd -e development react-scripts start",
+		"build-intranet": "env-cmd -e intranet react-scripts build",
+		"build-public": "env-cmd -e public react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+		"@types/jest": "^29.5.13",
+		"@types/node": "^22.5.5",
+		"@types/react": "^18.3.5",
+		"@types/react-dom": "^18.3.0",
+		"@typescript-eslint/eslint-plugin": "^8.5.0",
+		"@typescript-eslint/parser": "^8.5.0",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^8.10.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"prettier": "3.3.3",
+		"prettier-eslint": "^16.3.0",
+		"typescript": "^5.6.2",
+		"typescript-eslint": "^8.5.0"
+	}
+}
