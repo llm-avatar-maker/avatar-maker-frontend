@@ -22,8 +22,7 @@
 	},
 	"scripts": {
 		"start": "env-cmd -e development react-scripts start",
-		"build-intranet": "env-cmd -e intranet react-scripts build",
-		"build-public": "env-cmd -e public react-scripts build",
+		"build": "env-cmd -e public react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},

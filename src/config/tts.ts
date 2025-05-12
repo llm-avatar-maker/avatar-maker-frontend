@@ -308,11 +308,11 @@ function getDefaultSsml(service, language, gender, voice) {
       "' name='" +
       voice +
       // eslint-disable-next-line quotes
-      "'><prosody rate='1.0'>理大是世界一流的研究型大學。我們通過專業為本的教育培養明日的領袖，並專注於跨學科研究和具影響力的創新發明，解決現實生活的問題。</prosody>" +
+      "'><prosody rate='1.0'>Hello World</prosody>" +
       '</voice></speak>'
     );
   } else {
-    return '理大是世界一流的研究型大學。我們通過專業為本的教育培養明日的領袖，並專注於跨學科研究和具影響力的創新發明，解決現實生活的問題。';
+    return 'Hello World';
   }
 }
 
