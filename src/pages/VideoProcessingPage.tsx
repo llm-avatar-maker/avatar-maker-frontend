@@ -32,7 +32,7 @@ import {
   getDefaultGender,
 } from '../config/tts';
 import apiPath from '../config/api-path';
-import { webrtcPort } from '../config/general';
+// import { webrtcPort } from '../config/general';
 
 export default function VideoProcessingPage() {
   // Avatar state
@@ -191,46 +191,43 @@ export default function VideoProcessingPage() {
   }, [ttsVideoUrl]);
 
   // Handlers for streaming buttons (placeholders)
-  const handleStartStreaming = async () => {
-    if (!videoRef.current) return;
-    const stream = videoRef.current.captureStream();
+  //   const handleStartStreaming = async () => {
+  //     if (!videoRef.current) return;
+  //     const stream = videoRef.current.captureStream();
 
-    // 1. Create a new RTCPeerConnection (no STUN server)
-    const pc = new RTCPeerConnection({ iceServers: [] });
+  //     // 1. Create a new RTCPeerConnection (no STUN server)
+  //     const pc = new RTCPeerConnection({ iceServers: [] });
 
-    // 2. Add video tracks to the connection
-    stream.getTracks().forEach((track) => pc.addTrack(track, stream));
+  //     // 2. Add video tracks to the connection
+  //     stream.getTracks().forEach((track) => pc.addTrack(track, stream));
 
-    // 3. Set up signaling (WebSocket to localhost)
-    const signaling = new WebSocket(`ws://localhost:${webrtcPort}`);
-    signaling.onopen = async () => {
-      // 4. Create offer and send to server
-      const offer = await pc.createOffer();
-      await pc.setLocalDescription(offer);
-      signaling.send(JSON.stringify({ type: 'offer', sdp: offer.sdp }));
-    };
+  //     // 3. Set up signaling (WebSocket to localhost)
+  //     const signaling = new WebSocket(`ws://localhost:${webrtcPort}`);
+  //     signaling.onopen = async () => {
+  //       // 4. Create offer and send to server
+  //       const offer = await pc.createOffer();
+  //       await pc.setLocalDescription(offer);
+  //       signaling.send(JSON.stringify({ type: 'offer', sdp: offer.sdp }));
+  //     };
 
-    signaling.onmessage = async (event) => {
-      const message = JSON.parse(event.data);
-      if (message.type === 'answer') {
-        await pc.setRemoteDescription({ type: 'answer', sdp: message.sdp });
-      } else if (message.type === 'candidate') {
-        await pc.addIceCandidate(message.candidate);
-      }
-    };
+  //     signaling.onmessage = async (event) => {
+  //       const message = JSON.parse(event.data);
+  //       if (message.type === 'answer') {
+  //         await pc.setRemoteDescription({ type: 'answer', sdp: message.sdp });
+  //       } else if (message.type === 'candidate') {
+  //         await pc.addIceCandidate(message.candidate);
+  //       }
+  //     };
 
-    // 5. Send ICE candidates to the server
-    pc.onicecandidate = (event) => {
-      if (event.candidate) {
-        signaling.send(
-          JSON.stringify({ type: 'candidate', candidate: event.candidate })
-        );
-      }
-    };
-  };
-  const handleStopStreaming = () => {
-    // To be implemented
-  };
+  //     // 5. Send ICE candidates to the server
+  //     pc.onicecandidate = (event) => {
+  //       if (event.candidate) {
+  //         signaling.send(
+  //           JSON.stringify({ type: 'candidate', candidate: event.candidate })
+  //         );
+  //       }
+  //     };
+  //   };
 
   // TTS controls reset
   function resetText(service, language, gender, voice) {
@@ -356,7 +353,7 @@ export default function VideoProcessingPage() {
                   style={{ marginBottom: 16 }}
                 />
               ) : null}
-              <Box display="flex" gap={2} mt={2}>
+              {/* <Box display="flex" gap={2} mt={2}>
                 <Button
                   variant="contained"
                   onClick={handleStartStreaming}
@@ -371,7 +368,7 @@ export default function VideoProcessingPage() {
                 >
                   Stop Streaming
                 </Button>
-              </Box>
+              </Box> */}
             </CardContent>
           </Card>
         </Grid>
